@@ -8,32 +8,27 @@ import reducers from './reducers';
 
 import App from './components/App';
 import './styles/custom.scss';
+import 'normalize.css/normalize.css';
 import { history } from './routes/AppRouter';
 
 const store = createStore(reducers, applyMiddleware(ReduxThunk));
 
-let hasRendered = false;
-const renderApp = () => {
-  return ReactDOM.render(
-    <Provider store={store}>
-      <App />
-    </Provider>,
-    document.getElementById('root')
-  );
-  // hasRendered = true;
-};
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
-    console.log('logged in');
+    console.log('logged in, user -> ', user);
     store.dispatch({
       type: 'LOGIN',
       user_id: user.uid,
       user_name: user.displayName
     });
-    renderApp();
   } else {
     console.log('logged out');
-    renderApp();
   }
 });

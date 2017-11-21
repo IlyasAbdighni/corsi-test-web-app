@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 class Header extends Component {
   constructor(props) {
@@ -17,13 +17,11 @@ class Header extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState((prevState, props) => {
-      console.log('Ilyas -> ', props);
       return { auth: props.auth };
     });
   }
 
   renderContent() {
-    console.log('Header content -> ', this.props);
     if (this.state.auth.isAuthenticated) {
       return (
         <li>
@@ -52,20 +50,21 @@ class Header extends Component {
   }
 
   render() {
-    console.log('Header render -> ', this.props);
     return (
       <div>
         <nav>
           <div className="nav-wrapper">
-            <a href="#" className="brand-logo center">
+            <Link to="/" className="brand-logo center">
               Corsi.it test web-app
-            </a>
+            </Link>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               {this.renderContent()}
             </ul>
             <ul id="nav-mobile" className="left hide-on-med-and-down">
-              <li>
-                <a href="sass.html">Home</a>
+              <li className={window.location.pathname === '/' ? 'active' : ''}>
+                <NavLink to="/" href="sass.html" activeClassName="active">
+                  Home
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -76,7 +75,6 @@ class Header extends Component {
 }
 
 const mapStateToProps = ({ auth }) => {
-  console.log('mapStateToProps -> ', auth);
   return { auth };
 };
 
