@@ -19,7 +19,6 @@ class Home extends Component {
     this.loadVideos(null);
   }
   componentWillReceiveProps(nextProps) {
-    console.log('componentWillReceiveProps -> ', nextProps);
     this.setState((prevState, props) => {
       return { vinfo: nextProps.vinfo, loading: nextProps.loading };
     });
@@ -27,13 +26,11 @@ class Home extends Component {
 
   loadVideos(pageToken) {
     pageToken = pageToken || '';
-    console.log('Button   ', pageToken);
     this.props.loadVideos(pageToken);
   }
 
   renderVideoList() {
     if (this.state.vinfo && this.state.vinfo.items.length > 0) {
-      console.log('Render video list -> ', this.state.vinfo);
       return this.state.vinfo.items.map((v, i) => {
         return <VideoCard key={i} info={v.snippet} vid={v.id.videoId} />;
       });
@@ -41,7 +38,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log('home render ->', this.props);
     let disable = 'disabled';
     if (this.props.vinfo) {
       disable = this.props.vinfo.prevPageToken ? '' : 'disabled';
@@ -75,7 +71,6 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('mapStateToProps -> ', state);
   return {
     vinfo: state.videos.vinfo
   };

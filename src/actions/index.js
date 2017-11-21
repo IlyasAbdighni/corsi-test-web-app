@@ -36,7 +36,6 @@ export const getVideos = (channelId, pageToken) => {
         prevPageToken: res.data.prevPageToken,
         items: res.data.items
       };
-      console.log('Get video result after click -> ', res);
       return result;
     });
 };
@@ -46,7 +45,6 @@ export const loadVideos = pageToken => {
     getChannelId().then(channelId => {
       getVideos(channelId, pageToken)
         .then(response => {
-          console.log('response from load videos func -> ', response);
           dispatch({ type: 'videos', videoInfo: response, loading: false });
         })
         .catch(err => {
