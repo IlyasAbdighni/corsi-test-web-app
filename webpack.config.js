@@ -3,6 +3,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var CSSExtract = new ExtractTextPlugin('styles.css');
 
+const isProduction = false;
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -25,6 +27,7 @@ module.exports = {
     ]
   },
   plugins: [CSSExtract],
+  devtool: isProduction ? 'source-map' : 'eval',
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     historyApiFallback: true

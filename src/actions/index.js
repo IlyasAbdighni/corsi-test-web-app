@@ -1,6 +1,15 @@
-export const add = (a, b) => {
+import { firebase, googleAuthProvider } from '../firebase/firebase';
+
+export const login = () => {
+  const auth = firebase.auth().signInWithPopup(googleAuthProvider);
   return dispatch => {
-    const sum = a + b;
-    dispatch({ type: 'ADD', payload: sum });
+    dispatch({ type: 'LOGIN', payload: auth });
+  };
+};
+
+export const logout = () => {
+  firebase.auth().signOut();
+  return dispatch => {
+    dispatch({ type: 'LOGOUT' });
   };
 };

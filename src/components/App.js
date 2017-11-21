@@ -1,36 +1,43 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+
+import Header from './Header';
+import Footer from './Footer';
+import Home from './Home';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      sum: null
-    };
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
   }
   componentWillMount() {
-    this.props.add(1, 2);
     // this.setState((prevstate, props) => ({ sum: props.sum }));
   }
-  //   componentDidUpdate() {
-  //     this.setState((prevstate, props) => ({ sum: props.sum }));
-  //   }
-  componentWillReceiveProps(prevProps, props) {
-    this.setState((prevstate, props) => ({ sum: props.sum }));
+
+  login() {
+    this.props.login();
   }
+
+  logout() {
+    this.props.logout();
+  }
+
   render() {
     return (
-      <div>
-        <h1>{this.state.sum || 'Loading'}</h1>
-      </div>
+      <BrowserRouter>
+        <div className="container">
+          <Header login={this.login} logout={this.logout} />
+          <Switch>
+            <Route path="/" component={Home} exact={true} />
+          </Switch>
+          <Footer />
+        </div>
+      </BrowserRouter>
     );
   }
 }
 
-const mapStateToProps = ({ add }) => {
-  let { sum } = add;
-  return { sum };
-};
-
-export default connect(mapStateToProps, actions)(App);
+export default connect(null, actions)(App);
