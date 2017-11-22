@@ -2,47 +2,44 @@
 
 One Paragraph of project description goes here
 
-## Getting Started
-To install the web pack, all you need to do is using npm or yarn to start
+### Installing
+
+To start the project install all the dependencies.
+
 ```
-npm run start
+npm install
+```
+
+or
+
+```
+yarn install
+```
+
+## Getting Started
+To install the web pack, all you need to do is using npm or yarn to start it.
+```
+npm start
 ```
 or 
 
 ```
-yarn run start
+yarn start
 ```
 
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
+* You can checkout the web app here: [http://localhost:8080](http://localhost:8080)
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [React](https://reactjs.org/docs) - React js documentation.
+* [Npm](https://www.npmjs.com/) - Package manager.
+* [Yarn](https://yarnpkg.com/en/) - I used Yarn in this project to manage the packages.
+* [Redux](https://redux.js.org/) - State management system.
 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Ilyas Abdighni** - *Initial work* - [IlyasAbdighini](https://github.com/IlyasAbdighni)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 

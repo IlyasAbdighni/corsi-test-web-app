@@ -8,7 +8,7 @@ class VideoCard extends Component {
       <div className="col s12 m4">
         <div className="card">
           <div className="card-image">
-            <Video vid={this.props.vid} />
+            <Video vid={this.props.vid} width="100%" hight="auto" />
             <span className="card-title">Card Title</span>
           </div>
           <div className="card-content">

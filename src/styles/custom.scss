@@ -10,3 +10,33 @@
 .card .card-content {
   height: 100px;
 }
+
+.unlike-btn:hover,
+.like-btn:hover {
+  color: #ee6e73;
+}
+
+.unlike-btn.active,
+.like-btn.active {
+  color: #ee6e73;
+}
+.like-container-with-tips {
+  position: relative;
+  span.login_tip--left {
+    position: absolute;
+    left: 7%;
+    bottom: -30%;
+    display: none;
+  }
+  span.login_tip--right {
+    position: absolute;
+    right: 7%;
+    bottom: -30%;
+    display: none;
+  }
+  &:hover {
+    span.tips {
+      display: inline;
+    }
+  }
+}

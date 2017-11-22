@@ -1,4 +1,4 @@
-export default (state = { sum: 0 }, action) => {
+export default (state = { isAuthenticated: false }, action) => {
   console.log(action);
   switch (action.type) {
     case 'LOGIN':

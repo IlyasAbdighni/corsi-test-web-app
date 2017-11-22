@@ -5,15 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev-server": "webpack-dev-server",
-    "build:prod": "webpack -p --env production"
+    "build:prod": "webpack -p --env production",
+    "start": "npm run dev-server"
   },
-  "keywords": [
-    "react",
-    "react-redux",
-    "react-router",
-    "firebase",
-    "auth"
-  ],
+  "keywords": ["react", "react-redux", "react-router", "firebase", "auth"],
   "author": "Ilyas Abdighni",
   "license": "ISC",
   "dependencies": {
@@ -35,6 +30,7 @@
     "react-paginate": "^5.0.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
+    "react-tippy": "^1.2.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.6",
