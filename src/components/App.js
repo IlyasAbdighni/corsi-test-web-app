@@ -30,7 +30,7 @@ class App extends Component {
           <Header login={this.login} logout={this.logout} />
           <Switch>
             <Route path="/" component={Home} exact={true} />
-            <Route path="/vedio/:id" component={VideoPage} />
+            <Route path="/video/:id" component={VideoPage} />
           </Switch>
           <Footer />
         </div>

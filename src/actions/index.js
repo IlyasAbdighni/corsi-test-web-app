@@ -12,9 +12,17 @@ const getChannelId = () => {
 };
 
 export const login = () => {
-  const auth = firebase.auth().signInWithPopup(googleAuthProvider);
   return dispatch => {
-    dispatch({ type: 'LOGIN' });
+    firebase
+      .auth()
+      .signInWithPopup(googleAuthProvider)
+      .then(auth => {
+        console.log(auth.user.uid);
+        dispatch({ type: 'LOGIN' });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 };
 
